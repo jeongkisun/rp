@@ -1,529 +1,439 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0f2c5c" />
-  <title>10월 매장품질 고객경험 R/P | 강북연구소</title>
-  <style>
-    :root {
-      --navy:#0f2c5c;
-      --blue:#1769d2;
-      --sky:#eaf4ff;
-      --teal:#0b8f8c;
-      --teal-soft:#e9fbf8;
-      --violet:#6e4bd8;
-      --violet-soft:#f3efff;
-      --orange:#f28b19;
-      --orange-soft:#fff6e9;
-      --pink:#e83d87;
-      --pink-soft:#fff0f6;
-      --ink:#152033;
-      --sub:#566176;
-      --line:#dfe7f1;
-      --card:#ffffff;
-      --page:#f4f7fb;
-      --shadow:0 12px 35px rgba(15,44,92,.08);
-      --radius:22px;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0f2c5c" />
+<title>11월 매장품질 고객경험 R/P | 강북연구소</title>
+<style>
 
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body {
-      margin:0;
-      font-family: "Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
-      color:var(--ink);
-      background:
-        radial-gradient(circle at top left, rgba(23,105,210,.10), transparent 34%),
-        radial-gradient(circle at top right, rgba(11,143,140,.08), transparent 30%),
-        var(--page);
-      line-height:1.55;
-      letter-spacing:-.02em;
-    }
+:root{--ink:#152033;--sub:#566176;--line:#dfe7f1;--card:#fff;--page:#f4f7fb;--shadow:0 12px 35px rgba(15,44,92,.08);--radius:22px}
 
-    .wrap {
-      width:min(1500px, calc(100% - 32px));
-      margin:24px auto 56px;
-    }
+*{box-sizing:border-box}html{scroll-behavior:smooth}
 
-    .hero {
-      position:relative;
-      overflow:hidden;
-      border-radius:28px;
-      padding:28px 34px;
-      color:#fff;
-      background:linear-gradient(115deg,#0b234b 0%,#103f7e 58%,#1769d2 100%);
-      box-shadow:0 18px 50px rgba(15,44,92,.22);
-    }
-    .hero:after {
-      content:"";
-      position:absolute;
-      width:300px;height:300px;
-      border-radius:50%;
-      right:-110px;top:-140px;
-      background:rgba(255,255,255,.07);
-    }
-    .hero-row {
-      position:relative;
-      z-index:1;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-    }
-    .hero h1 {
-      margin:0;
-      font-size:clamp(28px,4vw,52px);
-      letter-spacing:-.045em;
-      line-height:1.05;
-      font-weight:900;
-    }
-    .hero .sub {
-      margin-top:10px;
-      color:rgba(255,255,255,.78);
-      font-size:15px;
-      font-weight:600;
-    }
-    .lab {
-      flex:0 0 auto;
-      padding:10px 18px;
-      border:1.5px solid rgba(255,255,255,.75);
-      border-radius:14px;
-      font-size:18px;
-      font-weight:800;
-      background:rgba(255,255,255,.06);
-      backdrop-filter: blur(8px);
-    }
+body{margin:0;font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;color:var(--ink);background:radial-gradient(circle at top left,rgba(23,105,210,.10),transparent 34%),radial-gradient(circle at top right,rgba(11,143,140,.08),transparent 30%),var(--page);line-height:1.55;letter-spacing:-.02em}
 
-    .scorebar {
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin:16px 0 0;
-    }
-    .scorepill {
-      padding:8px 12px;
-      border-radius:999px;
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.13);
-      font-size:13px;
-      font-weight:700;
-      color:#eaf2ff;
-    }
+.wrap{width:min(1500px,calc(100% - 32px));margin:24px auto 56px}
 
-    .grid {
-      display:grid;
-      grid-template-columns:1.25fr 1.1fr .9fr;
-      gap:18px;
-      margin-top:18px;
-      align-items:start;
-    }
-    .col {
-      display:grid;
-      gap:18px;
-    }
+.hero{position:relative;overflow:hidden;border-radius:28px;padding:28px 34px;color:#fff;background:linear-gradient(115deg,#0b234b 0%,#103f7e 58%,#1769d2 100%);box-shadow:0 18px 50px rgba(15,44,92,.22)}
 
-    .card {
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      overflow:hidden;
-    }
+.hero:after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;right:-110px;top:-140px;background:rgba(255,255,255,.07)}
 
-    .card-head {
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding:16px 18px;
-      color:#fff;
-      font-weight:900;
-      font-size:20px;
-    }
-    .card-head .title {
-      display:flex;
-      align-items:center;
-      gap:10px;
-      min-width:0;
-    }
-    .num {
-      width:34px;height:34px;
-      display:inline-grid;
-      place-items:center;
-      border-radius:50%;
-      background:rgba(255,255,255,.16);
-      border:1px solid rgba(255,255,255,.22);
-      font-weight:900;
-      flex:0 0 auto;
-    }
-    .head-blue { background:linear-gradient(90deg,#165ebd,#1976df); }
-    .head-teal { background:linear-gradient(90deg,#087f7a,#11a7a0); }
-    .head-violet { background:linear-gradient(90deg,#6540ce,#7b5ce7); }
-    .head-orange { background:linear-gradient(90deg,#ef7f0b,#f5a32a); }
-    .head-pink { background:linear-gradient(90deg,#d92e78,#ee5b9c); }
+.hero-row{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:20px}
 
-    .body { padding:18px 20px 20px; }
-    .q {
-      font-weight:900;
-      font-size:17px;
-      margin:0 0 8px;
-      color:#111827;
-    }
-    .answer {
-      margin:0 0 14px;
-      padding-left:2px;
-      font-weight:700;
-    }
-    .answer.blue { color:#185cc5; }
-    .answer.teal { color:#087f7a; }
-    .answer.violet { color:#6643c9; }
-    .answer.orange { color:#d96e00; }
-    .answer.pink { color:#ce2a6b; }
-    .step {
-      border-left:3px solid #dbe8fb;
-      padding-left:13px;
-      margin:8px 0 14px;
-      color:#293548;
-    }
-    .step p { margin:3px 0; }
-    .mini {
-      color:var(--sub);
-      font-size:14px;
-    }
-    .em {
-      font-weight:900;
-      color:#0f2c5c;
-    }
+.hero h1{margin:0;font-size:clamp(28px,4vw,52px);letter-spacing:-.045em;line-height:1.05;font-weight:900}
 
-    .accentbox {
-      margin-top:12px;
-      padding:14px;
-      border-radius:16px;
-      background:#f8fbff;
-      border:1px dashed #bdd2ef;
-    }
-    .accentbox.teal { background:#f2fcfb; border-color:#b9e6e2; }
-    .accentbox.violet { background:#f7f3ff; border-color:#d7cbff; }
-    .accentbox.orange { background:#fff8ef; border-color:#f4d6ae; }
+.hero .sub{margin-top:10px;color:rgba(255,255,255,.78);font-size:15px;font-weight:600}
 
-    .qr-grid {
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:12px;
-      margin-top:12px;
-    }
-    .qr {
-      text-align:center;
-      padding:12px;
-      border-radius:16px;
-      background:#fff;
-      border:1px solid #e2dcff;
-    }
-    .qr img {
-      width:min(145px,100%);
-      aspect-ratio:1;
-      object-fit:contain;
-      display:block;
-      margin:0 auto 8px;
-      image-rendering:auto;
-    }
-    .qr b { font-size:14px; }
+.lab{flex:0 0 auto;padding:10px 18px;border:1.5px solid rgba(255,255,255,.75);border-radius:14px;font-size:18px;font-weight:800;background:rgba(255,255,255,.06)}
 
-    .tnps {
-      display:flex;
-      gap:14px;
-      align-items:center;
-    }
-    .tnps img {
-      width:135px;
-      max-width:42%;
-      border-radius:12px;
-      border:1px solid #eee;
-      background:#fff;
-    }
+.scorebar{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
 
-    .clean-list {
-      margin:8px 0 0;
-      padding-left:20px;
-    }
-    .clean-list li { margin:5px 0; }
+.scorepill{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.13);font-size:13px;font-weight:700;color:#eaf2ff}
 
-    .badge {
-      display:inline-flex;
-      align-items:center;
-      padding:4px 9px;
-      margin-left:6px;
-      border-radius:999px;
-      font-size:12px;
-      font-weight:900;
-      background:#edf4ff;
-      color:#165ebd;
-      vertical-align:middle;
-    }
-    .badge.new {
-      background:#f0ebff;
-      color:#6845cf;
-    }
-    .badge.alert {
-      background:#ffe4e6;
-      color:#e11d48;
-      margin-left: 0;
-    }
+.scorepill.hot{background:#fff;color:#0f2c5c}
 
-    .footer {
-      margin-top:18px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:16px;
-      color:#6a7487;
-      font-size:12px;
-    }
+.grid{display:grid;grid-template-columns:1.2fr 1.05fr 1fr;gap:18px;margin-top:18px;align-items:start}
 
-    .print-btn {
-      position:fixed;
-      right:20px;
-      bottom:20px;
-      z-index:10;
-      border:0;
-      border-radius:999px;
-      padding:13px 18px;
-      color:#fff;
-      background:#0f2c5c;
-      font-weight:800;
-      box-shadow:0 12px 30px rgba(15,44,92,.24);
-      cursor:pointer;
-    }
+.col{display:grid;gap:18px}
 
-    @media (max-width:1100px) {
-      .grid { grid-template-columns:1fr 1fr; }
-      .grid .col:last-child { grid-column:1/-1; grid-template-columns:repeat(3,1fr); }
-    }
+.col-title{font-weight:900;font-size:14px;color:#566176;margin:0 0 -8px 6px}
 
-    @media (max-width:760px) {
-      .wrap { width:min(100% - 18px, 700px); margin-top:10px; }
-      .hero { padding:22px 20px; border-radius:22px; }
-      .hero-row { align-items:flex-start; }
-      .hero h1 { font-size:30px; }
-      .lab { font-size:14px; padding:8px 12px; }
-      .grid, .grid .col:last-child { grid-template-columns:1fr; }
-      .grid .col:last-child { grid-column:auto; }
-      .card-head { font-size:18px; }
-      .body { padding:16px; }
-      .q { font-size:16px; }
-      .qr-grid { grid-template-columns:1fr 1fr; }
-      .print-btn { display:none; }
-    }
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
 
-    @media print {
-      @page { size:A4 landscape; margin:8mm; }
-      body { background:#fff; }
-      .wrap { width:100%; margin:0; }
-      .hero, .card { box-shadow:none; }
-      .grid { gap:10px; grid-template-columns:1.25fr 1.1fr .9fr; }
-      .col { gap:10px; }
-      .hero { padding:16px 20px; border-radius:16px; }
-      .hero h1 { font-size:30px; }
-      .card-head { padding:10px 12px; font-size:14px; }
-      .num { width:26px; height:26px; }
-      .body { padding:10px 12px 12px; font-size:10px; line-height:1.35; }
-      .q { font-size:11px; margin-bottom:4px; }
-      .answer { margin-bottom:6px; }
-      .step { margin:4px 0 6px; padding-left:8px; }
-      .mini { font-size:9px; }
-      .qr img { width:85px; }
-      .tnps img { width:95px; }
-      .scorebar, .footer, .print-btn { display:none !important; }
-    }
-  </style>
+.card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:15px 18px;color:#fff;font-weight:900;font-size:19px;flex-wrap:wrap}
+
+.card-head .title{display:flex;align-items:center;gap:10px;min-width:0;flex-wrap:wrap}
+
+.num{width:32px;height:32px;display:inline-grid;place-items:center;border-radius:50%;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22);font-weight:900;flex:0 0 auto}
+
+.head-navy{background:linear-gradient(90deg,#173b7a,#2457a8)}
+
+.head-blue{background:linear-gradient(90deg,#165ebd,#1976df)}
+
+.head-teal{background:linear-gradient(90deg,#087f7a,#11a7a0)}
+
+.head-violet{background:linear-gradient(90deg,#6540ce,#7b5ce7)}
+
+.head-orange{background:linear-gradient(90deg,#ef7f0b,#f5a32a)}
+
+.head-pink{background:linear-gradient(90deg,#d92e78,#ee5b9c)}
+
+.body{padding:18px 20px 20px}
+
+.q{font-weight:900;font-size:16.5px;margin:0 0 6px;color:#111827}
+
+.answer{margin:0 0 12px;font-weight:800}
+
+.answer.navy{color:#173b7a}.answer.blue{color:#185cc5}.answer.teal{color:#087f7a}.answer.violet{color:#6643c9}.answer.orange{color:#d96e00}.answer.pink{color:#ce2a6b}
+
+.big{font-size:22px;letter-spacing:-.03em}
+
+.step{border-left:3px solid #dbe8fb;padding-left:13px;margin:8px 0 14px;color:#293548}
+
+.step p{margin:4px 0}
+
+.mini{color:var(--sub);font-size:13.5px}
+
+.rule{display:block;margin-top:4px;color:#e11d48;font-size:13px;font-weight:800}
+
+.say{color:#566176;font-style:normal;font-weight:600}
+
+.must{display:inline-block;padding:1px 7px;margin-right:4px;border-radius:6px;background:#e11d48;color:#fff;font-size:12px;font-weight:900;vertical-align:1px}
+
+.kw{font-weight:900;color:#0f2c5c;background:linear-gradient(transparent 60%,#ffe9a8 60%)}
+
+.badge{display:inline-flex;align-items:center;padding:4px 9px;border-radius:999px;font-size:12px;font-weight:900;background:rgba(255,255,255,.92);color:#165ebd;white-space:nowrap}
+
+.badge.new{background:#fff1a8;color:#7a4b00}
+
+.badge.alert{background:#ffe4e6;color:#e11d48}
+
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:6px 0 12px}
+
+.flow span{padding:6px 10px;border-radius:10px;background:#eef4ff;font-weight:800;font-size:14px;color:#173b7a}
+
+.flow i{font-style:normal;color:#9aa8bd;font-weight:900}
+
+.sub3{display:grid;gap:10px}
+
+.box{padding:12px 14px;border-radius:14px;background:#f8fbff;border:1px dashed #bdd2ef}
+
+.box.teal{background:#f2fcfb;border-color:#b9e6e2}
+
+.box.violet{background:#f7f3ff;border-color:#d7cbff}
+
+.box.pink{background:#fff5f9;border-color:#f6c6da}
+
+.box h4{margin:0 0 6px;font-size:15.5px;color:#173b7a}
+
+.box p{margin:3px 0}
+
+table.t{width:100%;border-collapse:collapse;font-size:14px}
+
+table.t td{padding:7px 6px;border-bottom:1px solid #eef2f7;vertical-align:top}
+
+table.t td:first-child{font-weight:900;color:#173b7a;white-space:nowrap;width:1%}
+
+ol.clean{margin:6px 0 0;padding-left:20px}ol.clean li{margin:4px 0}
+
+.linkbtn{display:inline-flex;align-items:center;gap:6px;margin:4px 0 2px;padding:9px 14px;border-radius:12px;background:#6643c9;color:#fff;text-decoration:none;font-weight:800;font-size:14px}
+
+.linkbtn:hover{background:#5233b3}
+
+.compact .card-head{padding:9px 14px;font-size:15px}.compact .num{width:24px;height:24px;font-size:13px}.compact .body{padding:10px 14px;font-size:14px}.compact .body p{margin:2px 0}.compact .linkbtn{padding:4px 10px;font-size:12px;margin:0 4px}
+
+@media print{.compact .card-head{padding:5px 8px;font-size:11px}.compact .body{padding:5px 8px;font-size:9px}}
+
+.cl-btn{position:relative;z-index:1;display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:10px 16px;border:0;border-radius:12px;background:#fff;color:#0f2c5c;font-weight:900;font-size:15px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.15)}
+
+.cl-btn:hover{background:#fff1a8}
+
+.cl-modal{display:none;position:fixed;inset:0;z-index:50;background:rgba(10,20,40,.82);padding:20px;overflow:auto}
+
+.cl-modal.open{display:block}
+
+.cl-box{max-width:1100px;margin:0 auto;background:#fff;border-radius:18px;padding:16px}
+
+.cl-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+
+.cl-top b{font-size:18px;color:#0f2c5c}
+
+.cl-tabs{display:flex;gap:6px}
+
+.cl-tabs button,.cl-close{border:1px solid #cfdaea;background:#f4f7fb;border-radius:10px;padding:7px 12px;font-weight:800;cursor:pointer;color:#0f2c5c}
+
+.cl-tabs button.on{background:#0f2c5c;color:#fff;border-color:#0f2c5c}
+
+.cl-close{background:#e11d48;color:#fff;border-color:#e11d48}
+
+.cl-box img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid #e5e9f0}
+
+.cl-box img+img{margin-top:12px}
+
+.cl-hint{font-size:12px;color:#566176;margin-top:8px}
+
+@media print{.cl-btn,.cl-modal{display:none!important}}
+
+@media (max-width:760px){
+
+body{font-size:15px;-webkit-text-size-adjust:100%}
+
+.hero h1{font-size:26px;line-height:1.2}.hero .sub{font-size:13px}
+
+.scorebar{gap:6px}.scorepill{font-size:12px;padding:6px 10px}
+
+.cl-btn{width:100%;justify-content:center;padding:13px;font-size:16px}
+
+.col-title{margin-left:2px}
+
+table.t,table.t tbody,table.t tr,table.t td{display:block;width:100%}
+
+table.t tr{padding:8px 0;border-bottom:1px solid #eef2f7}
+
+table.t td{border:0;padding:1px 0}
+
+table.t td:first-child{white-space:normal;width:auto}
+
+.flow span{font-size:13px;padding:5px 8px}
+
+.box{padding:11px 12px}
+
+.linkbtn{padding:10px 14px}
+
+.compact .linkbtn{display:inline-flex;margin:6px 0}
+
+.cl-modal{padding:0}
+
+.cl-box{border-radius:0;min-height:100%;padding:12px}
+
+.cl-top{position:sticky;top:-12px;background:#fff;padding:10px 0;z-index:2}
+
+.cl-tabs{width:100%}.cl-tabs button{flex:1;padding:10px 4px}
+
+}
+
+.footer{margin-top:18px;display:flex;justify-content:space-between;gap:16px;color:#6a7487;font-size:12px}
+
+.print-btn{position:fixed;right:20px;bottom:20px;z-index:10;border:0;border-radius:999px;padding:13px 18px;color:#fff;background:#0f2c5c;font-weight:800;box-shadow:0 12px 30px rgba(15,44,92,.24);cursor:pointer}
+
+@media (max-width:1100px){.grid{grid-template-columns:1fr 1fr}.grid .col:last-child{grid-column:1/-1}}
+
+@media (max-width:760px){.wrap{width:calc(100% - 18px);margin-top:10px}.hero{padding:22px 20px;border-radius:22px}.hero-row{align-items:flex-start}.hero h1{font-size:30px}.lab{font-size:14px;padding:8px 12px}.grid{grid-template-columns:1fr}.grid .col:last-child{grid-column:auto}.card-head{font-size:17px}.body{padding:16px}.big{font-size:19px}.print-btn{display:none}}
+
+@media print{@page{size:A4 landscape;margin:7mm}body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.wrap{width:100%;margin:0}.hero,.card{box-shadow:none}.grid{gap:8px;grid-template-columns:1.2fr 1.05fr 1fr}.grid .col:last-child{grid-column:auto}.col{gap:8px}.col-title{display:none}.hero{padding:12px 18px;border-radius:14px}.hero h1{font-size:26px}.hero .sub{font-size:11px;margin-top:4px}.card-head{padding:7px 10px;font-size:13px}.num{width:22px;height:22px}.body{padding:8px 10px;font-size:9.5px;line-height:1.35}.q{font-size:10.5px}.big{font-size:13px}.answer{margin-bottom:5px}.box{padding:6px 8px}.box h4{font-size:10.5px}table.t{font-size:9.5px}table.t td{padding:3px}.flow span{font-size:9.5px;padding:3px 6px}.mini,.rule{font-size:8.5px}.scorebar,.footer,.print-btn{display:none!important}.card{break-inside:avoid}}
+</style>
 </head>
 <body>
-  <main class="wrap">
-    <section class="hero">
-      <div class="hero-row">
-        <div>
-          <h1>10월 매장품질 고객경험 R/P</h1>
-          <div class="sub">현장 점검 대비 핵심 질문 · 시연 · 가점 항목 한눈에 보기</div>
-        </div>
-        <div class="lab">강북연구소</div>
-      </div>
-      <div class="scorebar">
-        <span class="scorepill">모바일 구매 상담 15점</span>
-        <span class="scorepill">홈 구매 상담 5점</span>
-        <span class="scorepill">상담태도 5점</span>
-        <span class="scorepill">문의/불만 2점</span>
-        <span class="scorepill">익시오 시연 1점</span>
-      </div>
-    </section>
+<main class="wrap">
+<section class="hero">
+<div class="hero-row">
+<div>
+<h1>11월 매장품질 고객경험 R/P</h1>
+<div class="sub">점검 직전 1분 확인 · 질문별 핵심 키워드 정답</div>
+</div>
+<div class="lab">강북연구소</div>
+</div>
+<div class="scorebar">
+<span class="scorepill hot">NEW 심플케어 15점</span>
+<span class="scorepill">모바일 단말기 3점</span>
+<span class="scorepill">홈 구매상담 5점</span>
+<span class="scorepill">상담태도 5점</span>
+<span class="scorepill">가점 : 필수멘트 · 쉬운용어 · 맘카 · 익시오 · U+one</span>
+</div>
+<button class="cl-btn" onclick="openCL()">📋 11월 체크리스트 원본 보기</button>
+</section>
+ 
+  <section class="grid">
+<!-- ===== 1열 : 심플케어 15점 ===== -->
+<div class="col">
+<p class="col-title">■ 심플케어 15점 (신설)</p>
+ 
+      <article class="card">
+<div class="card-head head-navy"><div class="title"><span class="num">1</span>심플케어_고객맞이 3점</div><span class="badge new">신설</span></div>
+<div class="body">
+<p class="q">Q. 예약 고객과 미예약 고객의 맞이 방법은?</p>
+<div class="step">
+<p><span class="kw">예약 고객</span> : 방문 목적 <b>사전 확인</b> → <b>되묻지 않고</b> 응대</p>
+<p class="say">"예약하신 명의변경 업무 도와드리겠습니다."</p>
+</div>
+<div class="step">
+<p><span class="kw">미예약 고객</span> : <b>방문 목적 확인</b> → 필요한 도움 안내</p>
+<p class="say">"어떤 업무를 도와드릴까요?"</p>
+</div>
+<span class="rule">※ 2가지 모두 답변해야 양호</span>
+</div>
+</article>
+ 
+      <article class="card">
+<div class="card-head head-navy"><div class="title"><span class="num">2</span>심플케어_구매상담 9점</div><span class="badge new">신설</span></div>
+<div class="body">
+<p class="q">A. 구매상담 시 반드시 안내할 3가지는?</p>
+<p class="answer navy big">금액 · 기간 · 조건</p>
+<p class="mini" style="margin:-6px 0 12px">A단계 답변해야 B단계로 이동 · 항목별 3점</p>
+ 
+          <p class="q">B. 항목별 세부 안내 <span class="rule" style="display:inline">필수 포함 3가지 이상</span></p>
+<div class="sub3">
+<div class="box">
+<h4>① 금액 = 얼마인지</h4>
+<p><span class="must">필수</span><b>최종 납부 금액</b></p>
+<p>고객 부담 : 단말기 / 요금제 / 약정할인 중 택1</p>
+<p>할인 금액 : 결합할인 / 제휴할인 / 부가서비스 중 택1</p>
+</div>
+<div class="box">
+<h4>② 기간 = 언제까지인지</h4>
+<p><span class="must">필수</span><b>약정 기간</b></p>
+<p>납부 기간 : 단말기 할부 기간</p>
+<p>할인 기간 : 약정 / 결합 / 제휴할인 적용 기간 중 택1</p>
+<p>유지 기간 : 요금제 / 부가서비스 유지 기간 중 택1</p>
+</div>
+<div class="box">
+<h4>③ 조건 = 무엇을 지켜야 하는지</h4>
+<p><span class="must">필수</span><b>요금제 유지기간</b></p>
+<p>결합할인 : 회선 수에 따른 할인 금액</p>
+<p>제휴할인 : 제휴카드 전월 이용실적 / 자동이체 중 택1</p>
+<p>부가서비스 : 가입 / 이용에 따른 비용</p>
+</div>
+</div>
+</div>
+</article>
+ 
+      <article class="card">
+<div class="card-head head-navy"><div class="title"><span class="num">3</span>심플케어_마무리 3점</div><span class="badge new">신설</span></div>
+<div class="body">
+<p class="q">Q. 상담 마무리 시 안내할 사항은?</p>
+<div class="flow"><span>완료 안내</span><i>→</i><span>추가 문의</span><i>→</i><span>추가 가치</span><i>→</i><span>감사 인사</span><i>→</i><span>명함·제안서</span></div>
+<table class="t">
+<tr><td>① 업무 완료</td><td class="say">"요청하신 ○○ 업무가 잘 처리되었습니다."</td></tr>
+<tr><td>② 추가 문의</td><td class="say">"더 궁금하시거나 필요하신 부분이 있을까요?"</td></tr>
+<tr><td>③ 추가 가치</td><td class="say">"이 부분은 더 체크해 보시면 ○○에 도움이 되실 거예요."</td></tr>
+<tr><td>④ 감사 인사</td><td class="say">"감사합니다, 좋은 하루 되세요." / "다음에 또 뵙겠습니다."</td></tr>
+<tr><td><span class="kw">⑤ 명함·가입제안서</span></td><td class="say">"가입제안서(가입증서)와 제 명함 함께 드리겠습니다."</td></tr>
+</table>
+<span class="rule">※ 사항 + 멘트 3개 이상 답변 시 양호 (⑤ 명함·가입제안서는 꼭 포함)</span>
+</div>
+</article>
+</div>
+ 
+    <!-- ===== 2열 : 기존 배점 항목 ===== -->
+<div class="col">
+<p class="col-title">■ 구매상담 · 태도</p>
+ 
+      <article class="card">
+<div class="card-head head-blue"><div class="title"><span class="num">4</span>모바일 단말기 특장점 3점</div><span class="badge alert">Duo / 18 Pro 랜덤</span></div>
+<div class="body">
+<p class="q">아이폰Duo <span class="mini">(4개 중 1개 이상)</span> <span class="badge new">NEW</span></p>
+<table class="t">
+<tr><td>스마트 포착</td><td>"하나, 둘, 셋" 없이 <b>모두 준비되면 알아서 촬영</b></td></tr>
+<tr><td>듀오 프리뷰</td><td><b>외부 디스플레이</b>로 내가 어떻게 찍히는지 확인</td></tr>
+<tr><td>아이 시선</td><td>외부 디스플레이 <b>애니메이션</b>으로 아이 시선을 렌즈로</td></tr>
+<tr><td>듀오 페이스타임</td><td><b>카메라 전환 없이</b> 영상통화로 풍경 공유</td></tr>
+</table>
+ 
+          <p class="q" style="margin-top:14px">아이폰18 Pro <span class="mini">(3개 중 1개 이상)</span></p>
+<table class="t">
+<tr><td>A20 Pro 칩 · 베이퍼 챔버</td><td><b>발열 관리</b> → 오래 써도 빠르고 부드럽게</td></tr>
+<tr><td>오래 가는 배터리</td><td>사용 시간 ↑ <b>충전 부담 ↓</b></td></tr>
+<tr><td>가변 조리개 48MP</td><td>환경에 맞춰 <b>빛과 심도</b> 조절</td></tr>
+</table>
+<span class="rule">※ 답변 + 실물 시연까지 해야 양호 (답변 불가 시 불량)</span>
+</div>
+</article>
+ 
+      <article class="card">
+<div class="card-head head-teal"><div class="title"><span class="num">5</span>홈 구매상담 5점</div><span class="badge">랜덤 1상품</span></div>
+<div class="body">
+<p class="q">Q. 상품의 주타겟과 세일즈멘트는?</p>
+<p class="answer teal">맘카 · <span class="kw">어린이가 있는 집</span><br><span class="say">"아이가 집에 잘 있는지 실시간으로 확인할 수 있어 마음이 편해요."</span></p>
+<p class="answer teal">도어캠 · <span class="kw">1인 가구</span><br><span class="say">"배달 음식이 도착하면 배달원이 떠났는지 앱으로 확인한 후 찾을 수 있어요."</span></p>
+<p class="answer teal">TV프리 · <span class="kw">1인 가구</span><br><span class="say">"전원선, 셋톱박스 없이 U+tv의 모든 실시간 채널을 즐길 수 있어요."</span></p>
+<span class="rule">※ 타겟 + 멘트 모두 답변해야 양호</span>
+</div>
+</article>
+ 
+      <article class="card">
+<div class="card-head head-blue"><div class="title"><span class="num">6</span>상담태도 5점</div></div>
+<div class="body">
+<p class="q">Q. 올바른 상담 태도 3가지는?</p>
+<p class="answer blue">친절한 말투 · 부드러운 미소 · 경청</p>
+<p class="mini">그 외 : 눈 맞춤, 존댓말, 긍정 표현, 직원 간 차분한 대화, 상냥한 태도</p>
+</div>
+</article>
+</div>
+ 
+    <!-- ===== 3열 : 가점 ===== -->
+<div class="col">
+<p class="col-title">■ 가점 (각 1점)</p>
+ 
+      <article class="card">
+<div class="card-head head-pink"><div class="title"><span class="num">7</span>필수멘트</div><span class="badge new">신설</span></div>
+<div class="body">
+<p class="q">Q1. 필수 멘트 3가지는?</p>
+<p class="answer pink big">공감 · 양해 · 복창</p>
+<p class="q">Q2. 1개 랜덤 → 상황 + 멘트</p>
+<table class="t">
+<tr><td>공감</td><td>방문 목적 확인 시<br><span class="say">"휴대폰 변경을 알아보러 오셨군요."</span></td></tr>
+<tr><td>양해</td><td>상담을 잠시 중단할 때<br><span class="say">"잠시 전화 받고 오겠습니다. 양해 부탁드립니다."</span></td></tr>
+<tr><td>복창</td><td>문의 핵심 재확인<br><span class="say">"○○를 확인하고 싶으신 거죠?"</span></td></tr>
+</table>
+</div>
+</article>
+ 
+      <article class="card">
+<div class="card-head head-pink"><div class="title"><span class="num">8</span>쉬운용어</div><span class="badge new">신설</span></div>
+<div class="body">
+<p class="q">Q. 고객 언어로 설명 (5개 중 2개 랜덤)</p>
+<table class="t">
+<tr><td>선택약정</td><td>폰값 할인 대신 <b>매달 요금 25% 할인</b></td></tr>
+<tr><td>공시지원금</td><td>요금할인 대신 <b>기기값 한 번에 할인</b></td></tr>
+<tr><td>결합할인</td><td>가족·지인이 함께 <b>U+ 인터넷+휴대폰</b> 쓰면 받는 할인</td></tr>
+<tr><td>부가서비스</td><td>요금제 외 <b>필요에 따라 추가 신청</b>하는 서비스</td></tr>
+<tr><td>약정 / 위약금</td><td>할인 대신 <b>유지하기로 한 기간</b> / <b>기간 전 해지 시 내는 금액</b></td></tr>
+</table>
+<span class="rule">※ 지정된 2개 모두 설명해야 양호</span>
+</div>
+</article>
+ 
+      <article class="card compact">
+<div class="card-head head-teal"><div class="title"><span class="num">9</span>스마트홈 맘카</div></div>
+<div class="body"><p class="answer teal">시연 후 사생활 보호모드 <span class="kw">ON</span></p></div>
+</article>
+ 
+      <article class="card compact">
+<div class="card-head head-violet"><div class="title"><span class="num">10</span>익시오 시연</div></div>
+<div class="body">
+<p>① 보이스피싱 탐지 ② 녹음·요약 ③ <span class="kw">보이는 전화</span> ④ AI 전화 대신 받기 <span class="mini">(1개 이상)</span></p>
+<p class="mini">APP 불가 시 : <a class="linkbtn" href="https://www.youtube.com/playlist?list=PL7X5hcfUPVf3HSRyYUVyc96JeUK6jZtFd" target="_blank" rel="noopener">▶ 숏폼 영상</a> 또는 프로모션 존 익시오 QR코드 실행</p>
+</div>
+</article>
+ 
+      <article class="card compact">
+<div class="card-head head-blue"><div class="title"><span class="num">11</span>U+one 안전한 보안 생활</div></div>
+<div class="body"><p>메뉴 → 고객지원 → <b>나의 보안 진단</b> → <b>나의 보안 지키기</b> → U+보안 서비스 <b>5가지</b></p></div>
+</article>
+</div>
+</section>
+ 
+  <div class="footer"><span>11월 매장 품질 코칭체크리스트 기준 · 현장 공유용</span><span>강북연구소</span></div>
+</main>
+<button class="print-btn" onclick="window.print()">인쇄 / PDF</button>
+<div class="cl-modal" id="clModal" onclick="if(event.target===this)closeCL()">
+<div class="cl-box">
+<div class="cl-top">
+<b>11월 매장 품질 코칭체크리스트</b>
+<div class="cl-tabs">
+<button id="t0" class="on" onclick="showCL(0)">전체</button>
+<button id="t1" onclick="showCL(1)">1페이지</button>
+<button id="t2" onclick="showCL(2)">2페이지</button>
+<button class="cl-close" onclick="closeCL()">✕ 닫기</button>
+</div>
+</div>
+<img id="cl1" src="https://raw.githubusercontent.com/jeongkisun/010101010/refs/heads/main/images/CL1.png" alt="체크리스트 1" loading="lazy">
+<img id="cl2" src="https://raw.githubusercontent.com/jeongkisun/010101010/refs/heads/main/images/CL2.png" alt="체크리스트 2" loading="lazy">
+<p class="cl-hint">※ 이미지를 누르면 새 창에서 크게 볼 수 있습니다 (확대 가능)</p>
+</div>
+</div>
+<script>
 
-    <section class="grid">
-      <div class="col">
-        <article class="card">
-          <div class="card-head head-blue">
-            <div class="title"><span class="num">1</span>모바일 구매 상담_15점</div>
-          </div>
-          <div class="body">
-            <p class="q">1. 탐색 단계에서 고객에게 물어봐야하는 것은?</p>
-            <p class="answer blue">① 니즈 단말기 ② 사용 패턴 (3점)</p>
+const M=document.getElementById('clModal');
 
-            <p class="q" style="margin-top:16px;">2. 제안 단계에서 고객에게 안내해야하는 3가지는?</p>
-            <div style="margin-bottom: 12px;"><span class="badge alert">단말기는 점검자 랜덤 지정</span></div>
+function openCL(){M.classList.add('open');document.body.style.overflow='hidden';}
 
-            <p class="answer blue">①-A [랜덤지정] 폴더블8 특장점 설명드릴게요 (3점)</p>
-            <div class="step">
-              <p><b>1) Z Flip8</b> : 미러뷰_커버 디스플레이로 실제 거울 같이 구현</p>
-              <p><span class="em">시연방법</span> : 접힌 상태에서 전원 버튼 더블 클릭</p>
-            </div>
+function closeCL(){M.classList.remove('open');document.body.style.overflow='';}
 
-            <div class="step">
-              <p><b>2) Z Fold8 Ultra</b> : 듀얼 레코딩_전·후면 카메라를 동시에 활용하여 촬영자와 피사체를 함께 촬영할 수 있는 기능</p>
-              <p><span class="em">시연방법</span></p>
-              <p>① 카메라-동영상에서 ‘퀵 컨트롤’ 클릭</p>
-              <p>② ‘듀얼 레코딩’ 선택</p>
-              <p>③ ‘세로 분할’ 선택</p>
-            </div>
+function showCL(n){[0,1,2].forEach(i=>document.getElementById('t'+i).classList.toggle('on',i===n));
 
-            <p class="answer blue" style="margin-top:20px;">①-B [랜덤지정] 아이폰18 Pro 특장점 요약 (3점) <span class="badge new">추가</span></p>
-            <p class="mini" style="margin:-10px 0 10px 2px; color:#e11d48;">* 아래 3개 특장점 중 1가지 이상 답변 (답변 불가 시 불량)</p>
-            <div class="step">
-              <p><b>1) A20 Pro 칩 & 베이퍼 챔버</b> : 열을 효과적으로 관리해 오래 사용해도 빠르고 부드러운 성능 유지</p>
-              <p><b>2) 더 오래 가는 배터리</b> : 사용 시간이 늘어나 충전 부담이 줄고 외출 시 여유 있게 사용</p>
-              <p><b>3) 48MP 가변 조리개 카메라</b> : 촬영 환경에 맞춰 빛과 심도를 정교하게 조절</p>
-            </div>
+document.getElementById('cl1').style.display=(n===2)?'none':'block';
 
-            <div class="accentbox">
-              <p class="answer blue">② 115 요금제 혜택으로는 (3점)</p>
-              <p>프리미엄플러스 : 유튜브 프리미엄</p>
-              <p>기본 : 통화/문자/데이터 무제한</p>
-              <p>데일리플러스 : 모아진</p>
-              <p>멤버십 : 네이버 멤버십</p>
-            </div>
+document.getElementById('cl2').style.display=(n===1)?'none':'block';}
 
-            <div class="accentbox">
-              <p class="answer blue">③ 결합 혜택으로는 (3점)</p>
-              <p>4인이상 투게더 결합하시면 1인당 월 2만원씩 할인 받을수 있어요.</p>
-            </div>
+document.querySelectorAll('.cl-box img').forEach(i=>i.onclick=()=>window.open(i.src,'_blank'));
 
-            <p class="q" style="margin-top:16px">3. 마무리 단계에서 고객에게 제공해야하는 것은?</p>
-            <p class="answer blue">① 구매고객 : 가입증서 ② 미구매고객 : 제안서, 명함 (3점)</p>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-head head-blue">
-            <div class="title"><span class="num">3</span>상담태도_5점</div>
-          </div>
-          <div class="body">
-            <p class="q">① 올바른 상담 태도 3가지를 답하세요</p>
-            <p class="answer blue">• 친절한 말투, 부드러운 미소, 경청</p>
-          </div>
-        </article>
-      </div>
-
-      <div class="col">
-        <article class="card">
-          <div class="card-head head-teal">
-            <div class="title"><span class="num">2</span>홈 구매 상담_5점</div>
-            <span class="badge">①②③ 중 랜덤 1문항</span>
-          </div>
-          <div class="body">
-            <p class="q">1. 맘카의 주타겟과 세일즈멘트를 답변하세요?</p>
-            <p class="answer teal">① 어린이가 있는집 : 아이가 집에 잘 있는지 실시간으로 확인할 수 있어 마음이 편해요</p>
-
-            <p class="q">2. 도어캠의 주타겟과 세일즈멘트를 답변하세요?</p>
-            <p class="answer teal">② 1인 가구 : 배달 음식이 도착하면, 배달원이 떠났는지 앱으로 확인한 후에 음식을 찾을 수 있어요.</p>
-
-            <p class="q">3. TV프리의 주타겟과 세일즈멘트를 답변하세요?</p>
-            <p class="answer teal">③ 1인 가구 : 전원선, 셋탑박스 없이 U+tv의 모든 실시간 채널을 즐길 수 있어요.</p>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-head head-violet">
-            <div class="title"><span class="num">7</span>익시오 시연_1점 <span class="badge new">9월 추가</span></div>
-          </div>
-          <div class="body">
-            <p class="q">※ 익시오 주요 기능 4가지 중 1가지 이상 시연하며 설명</p>
-            <ol class="clean-list">
-              <li>실시간 보이스피싱 탐지(안티 딥보이스)</li>
-              <li>녹음, 요약 및 AI제안</li>
-              <li>보이스 전사</li>
-              <li>AI 전화 대신 받기</li>
-            </ol>
-
-            <div class="accentbox violet">
-              <p class="answer violet">□ APP으로 시연 불가 시</p>
-              <p>① 익시오 쇼츠 배너 영상 URL 및 QR코드로 직접 영상 시연하며 설명</p>
-              <p>② 프로모션 존 익시오 QR코드로 직접 시연하며 설명</p>
-            </div>
-
-            <div class="qr-grid">
-              <div class="qr">
-                <img src="data:image/png;base64,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" alt="유튜브 쇼츠 익시오 QR">
-                <b>유튜브 쇼츠<br>익시오 QR</b>
-              </div>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <div class="col">
-        <article class="card">
-          <div class="card-head head-orange">
-            <div class="title"><span class="num">4</span>문의 / 불만 관리_2점</div>
-          </div>
-          <div class="body">
-            <p class="q">① 점검일 전일까지</p>
-            <p class="answer blue">UCRM 오늘의 할일 D+1 완료 여부</p>
-            <p class="answer orange">• 휴무자도 점장이 완료해야 됨</p>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-head head-blue">
-            <div class="title"><span class="num">5</span>Sales All (스마트CS) 가점_1점</div>
-          </div>
-          <div class="body">
-            <p class="q">① Sales All 설치된 패드(폰)으로 로그인 확인</p>
-            <p class="q">② Sales All 처리 가능한 업무 5가지 답변</p>
-            <p class="answer blue">• 고객정보변경, 일시정지, 명의변경<br>단말 분실/파손, 단말/상품 변경, 선택약정할인</p>
-            <p class="mini">* 스마트CS 화면의 처리 가능 업무 보고 답변가능</p>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-head head-teal">
-            <div class="title"><span class="num">6</span>AI 헬프데스크 접속 및 사용법_가점 1점</div>
-          </div>
-          <div class="body">
-            <p class="answer teal">• AI헬프데스크 클릭 → AI 헬프데스크 질문하기 →<br>답변 하단 출처 버튼 클릭으로 상담가이드 연결하기</p>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-head head-pink">
-            <div class="title"><span class="num">8</span>t-NPS 제작물 부착_3점</div>
-          </div>
-          <div class="body">
-            <div class="tnps">
-              <img src="data:image/png;base64,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" alt="t-NPS 제작물 예시">
-              <div>
-                <p class="q">제작물 부착 여부 확인</p>
-                <p class="answer pink">매장 내 지정 위치 부착 필수</p>
-              </div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <div class="footer">
-      <span>현장 공유용 · 모바일/PC 반응형</span>
-      <span>강북연구소</span>
-    </div>
-  </main>
-
-  <button class="print-btn" onclick="window.print()">인쇄 / PDF</button>
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCL();});
+</script>
 </body>
 </html>
+
+익시오(ixi-O)_체험 영상
+YouTube에서 마음에 드는 동영상과 음악을 감상하고, 직접 만든 콘텐츠를 업로드하여 친구, 가족뿐 아니라 전 세계 사람들과 콘텐츠를 공유할 수 있습니다.
+ 
