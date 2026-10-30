@@ -65,21 +65,9 @@ ol.clean{margin:6px 0 0;padding-left:20px}ol.clean li{margin:4px 0}
 .linkbtn:hover{background:#5233b3}
 .compact .card-head{padding:9px 14px;font-size:15px}.compact .num{width:24px;height:24px;font-size:13px}.compact .body{padding:10px 14px;font-size:14px}.compact .body p{margin:2px 0}.compact .linkbtn{padding:4px 10px;font-size:12px;margin:0 4px}
 @media print{.compact .card-head{padding:5px 8px;font-size:11px}.compact .body{padding:5px 8px;font-size:9px}}
-.cl-btn{position:relative;z-index:1;display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:10px 16px;border:0;border-radius:12px;background:#fff;color:#0f2c5c;font-weight:900;font-size:15px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.15)}
+.cl-btn{position:relative;z-index:1;display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:10px 16px;border:0;border-radius:12px;background:#fff;color:#0f2c5c;font-weight:900;font-size:15px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.15);text-decoration:none}
 .cl-btn:hover{background:#fff1a8}
-.cl-modal{display:none;position:fixed;inset:0;z-index:50;background:rgba(10,20,40,.82);padding:20px;overflow:auto}
-.cl-modal.open{display:block}
-.cl-box{max-width:1100px;margin:0 auto;background:#fff;border-radius:18px;padding:16px}
-.cl-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
-.cl-top b{font-size:18px;color:#0f2c5c}
-.cl-tabs{display:flex;gap:6px}
-.cl-tabs button,.cl-close{border:1px solid #cfdaea;background:#f4f7fb;border-radius:10px;padding:7px 12px;font-weight:800;cursor:pointer;color:#0f2c5c}
-.cl-tabs button.on{background:#0f2c5c;color:#fff;border-color:#0f2c5c}
-.cl-close{background:#e11d48;color:#fff;border-color:#e11d48}
-.cl-box img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid #e5e9f0}
-.cl-box img+img{margin-top:12px}
-.cl-hint{font-size:12px;color:#566176;margin-top:8px}
-@media print{.cl-btn,.cl-modal{display:none!important}}
+@media print{.cl-btn{display:none!important}}
 @media (max-width:760px){
 body{font-size:15px;-webkit-text-size-adjust:100%}
 .hero h1{font-size:26px;line-height:1.2}.hero .sub{font-size:13px}
@@ -94,10 +82,6 @@ table.t td:first-child{white-space:normal;width:auto}
 .box{padding:11px 12px}
 .linkbtn{padding:10px 14px}
 .compact .linkbtn{display:inline-flex;margin:6px 0}
-.cl-modal{padding:0}
-.cl-box{border-radius:0;min-height:100%;padding:12px}
-.cl-top{position:sticky;top:-12px;background:#fff;padding:10px 0;z-index:2}
-.cl-tabs{width:100%}.cl-tabs button{flex:1;padding:10px 4px}
 }
 .footer{margin-top:18px;display:flex;justify-content:space-between;gap:16px;color:#6a7487;font-size:12px}
 .print-btn{position:fixed;right:20px;bottom:20px;z-index:10;border:0;border-radius:999px;padding:13px 18px;color:#fff;background:#0f2c5c;font-weight:800;box-shadow:0 12px 30px rgba(15,44,92,.24);cursor:pointer}
@@ -123,7 +107,7 @@ table.t td:first-child{white-space:normal;width:auto}
 <span class="scorepill">상담태도 5점</span>
 <span class="scorepill">가점 : 필수멘트 · 쉬운용어 · 맘카 · 익시오 · U+one</span>
 </div>
-<button class="cl-btn" onclick="openCL()">📋 11월 체크리스트 원본 보기</button>
+<a class="cl-btn" href="https://jeongkisun.github.io/cl/" target="_blank" rel="noopener">📋 11월 체크리스트 원본 보기</a>
 </section>
  
   <section class="grid">
@@ -299,31 +283,5 @@ table.t td:first-child{white-space:normal;width:auto}
   <div class="footer"><span>11월 매장 품질 코칭체크리스트 기준 · 현장 공유용</span><span>강북연구소</span></div>
 </main>
 <button class="print-btn" onclick="window.print()">인쇄 / PDF</button>
-<div class="cl-modal" id="clModal" onclick="if(event.target===this)closeCL()">
-<div class="cl-box">
-<div class="cl-top">
-<b>11월 매장 품질 코칭체크리스트</b>
-<div class="cl-tabs">
-<button id="t0" class="on" onclick="showCL(0)">전체</button>
-<button id="t1" onclick="showCL(1)">1페이지</button>
-<button id="t2" onclick="showCL(2)">2페이지</button>
-<button class="cl-close" onclick="closeCL()">✕ 닫기</button>
-</div>
-</div>
-<img id="cl1" src="https://raw.githubusercontent.com/jeongkisun/010101010/refs/heads/main/images/CL1.png" alt="체크리스트 1" loading="lazy">
-<img id="cl2" src="https://raw.githubusercontent.com/jeongkisun/010101010/refs/heads/main/images/CL2.png" alt="체크리스트 2" loading="lazy">
-<p class="cl-hint">※ 이미지를 누르면 새 창에서 크게 볼 수 있습니다 (확대 가능)</p>
-</div>
-</div>
-<script>
-const M=document.getElementById('clModal');
-function openCL(){M.classList.add('open');document.body.style.overflow='hidden';}
-function closeCL(){M.classList.remove('open');document.body.style.overflow='';}
-function showCL(n){[0,1,2].forEach(i=>document.getElementById('t'+i).classList.toggle('on',i===n));
-document.getElementById('cl1').style.display=(n===2)?'none':'block';
-document.getElementById('cl2').style.display=(n===1)?'none':'block';}
-document.querySelectorAll('.cl-box img').forEach(i=>i.onclick=()=>window.open(i.src,'_blank'));
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCL();});
-</script>
 </body>
 </html>
